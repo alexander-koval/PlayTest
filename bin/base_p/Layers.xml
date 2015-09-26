@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<GUI>
+  <Layer name="GameLayer" background="Background">
+		<Controls>
+      <GameView name="GameView" width="768" height="1024"/>
+      <TestWidget name="TestWidget"/>
+		</Controls>
+	</Layer>
+</GUI>
