@@ -10,5 +10,22 @@
 		<texture id="btnStart_Text" path="textures/Local/Buttons/Start_text.png" group="MainMenu" upload="true"/>
     <texture id="Background" path="textures/bg.png" group="TestGroup" upload="false"/>
     <texture id="Dot" path="textures/dot.png" group="TestGroup" upload="false"/>
+    <texture id="Bianfu1" path="textures/bianfu1.png" group="TestGroup" upload="false"/>
   </Textures>
+  <!--<StreamingAnimation>
+    <animation id="Bianfu1Animation" texture="Bianfu1">
+      <frames width="56" height="40" count="25" first="1" last="25"/>
+      <playback fps="24" play="1" loop="1" forward="1" pingpong="0"/>
+    </animation>    
+  </StreamingAnimation>-->
+  <Animations>
+    <animation id="Bianfu1Idle" texture="Bianfu1" group="TestGroup" upload="false">
+      <frames width="112" height="80" count="26" first="1" last="16"/>
+      <playback fps="24" play="1" loop="1" forward="1" pingpong="0"/>
+    </animation>
+    <animation id="Bianfu1Die" texture="Bianfu1" group="TestGroup" upload="false">
+      <frames width="112" height="80" count="26" first="17" last="26"/>
+      <playback fps="24" play="1" loop="0" forward="1" pingpong="0"/>
+    </animation>
+  </Animations>
 </Resources>

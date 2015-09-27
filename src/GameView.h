@@ -2,6 +2,7 @@
 #include "GUI/Widget.h"
 
 class Bubble;
+class Monster;
 typedef boost::intrusive_ptr<Bubble> BubblePtr;
 class GameView : public GUI::Widget
 {
@@ -22,10 +23,13 @@ private:
 	void Init();
 
 private:
-
+	using MonsterPtr = std::unique_ptr < Monster > ;
 	Render::Texture* m_texture;
+	std::vector<MonsterPtr> m_monsters;
+	//std::unique_ptr<Monster> m_monster;
+	//Render::Animation* m_animation;
 //	Render::SpritePtr m_sprite;
-	std::vector<BubblePtr> m_bubbles;
-    std::unique_ptr<Render::SpriteBatch> m_spriteBatch;
+//	std::vector<BubblePtr> m_bubbles;
+//    std::unique_ptr<Render::SpriteBatch> m_spriteBatch;
 };
 

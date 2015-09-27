@@ -115,6 +115,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Monster.cpp" />
     <ClCompile Include="src\Bubble.cpp" />
     <ClCompile Include="src\GameView.cpp" />
     <ClCompile Include="src\Main.cpp" />
@@ -126,6 +127,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Monster.h" />
     <ClInclude Include="src\Bubble.h" />
     <ClInclude Include="src\GameView.h" />
     <ClInclude Include="src\TestAppDelegate.h" />
