@@ -11,6 +11,10 @@
     <texture id="Background" path="textures/bg.png" group="TestGroup" upload="false"/>
     <texture id="Dot" path="textures/dot.png" group="TestGroup" upload="false"/>
     <texture id="Bianfu1" path="textures/bianfu1.png" group="TestGroup" upload="false"/>
+    <texture id="Bomb" path="textures/bomb.png" group="TestGroup" upload="false"/>
+    <texture id="Halo" path="textures/halo.png" group="TestGroup" upload="false"/>
+    <texture id="Shockwave" path="textures/shockwave.png" group="TestGroup" upload="false"/>
+    <texture id="Sparcle" path="textures/sparcle.png" group="TestGroup" upload="false"/>
   </Textures>
   <!--<StreamingAnimation>
     <animation id="Bianfu1Animation" texture="Bianfu1">

@@ -1,21 +1,17 @@
 #pragma once
 
-//#include "intrusive_weak_ptr.hpp"
+#include "Gameable.h"
 
-class Monster
+class Monster : public Gameable
 {
 public:
 	Monster();
 
 	virtual ~Monster();
 
-	virtual void Draw();
+	virtual void Draw() override;
 
-	virtual void Update(float dt);
-
-	void SetPosition(const IPoint& position);
-
-	const IPoint& GetPosition() const;
+	virtual void Update(float dt) override;
 
 	void SetVelocity(const math::Vector3& velocity);
 
@@ -23,19 +19,19 @@ public:
 
 	const math::Vector3& GetVelocity() const;
 
-	int Width() const;
+	int Width() const override;
 
-	int Height() const;
+	int Height() const override;
 
-	IRect GetLocalBounds() const;
+	void SetAlive(bool value);
 
-	IRect GetGlobalBounds() const;
-
-private:
-	virtual void Init(void);
+	bool IsAlive() const;
 
 private:
-	IPoint m_position;
+	void Init(void);
+
+private:
+	bool m_isAlive;
 	math::Vector3 m_velocity;
 	boost::intrusive_ptr<Render::Animation> m_idle;
 	boost::intrusive_ptr<Render::Animation> m_die;

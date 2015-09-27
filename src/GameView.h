@@ -1,8 +1,12 @@
 #pragma once
 #include "GUI/Widget.h"
+#include "SpritePool.h"
+#include "Bomb.h"
 
+class Bomb;
 class Bubble;
 class Monster;
+class Shockwave;
 typedef boost::intrusive_ptr<Bubble> BubblePtr;
 class GameView : public GUI::Widget
 {
@@ -22,14 +26,17 @@ public:
 private:
 	void Init();
 
+	void CollideWithWall(Monster& monster);
+
+	bool CollideWithShockwave(Monster& monster, Shockwave& shockwave);
+
 private:
-	using MonsterPtr = std::unique_ptr < Monster > ;
+	using MonsterPtr = std::unique_ptr <Monster> ;
+	using ShockwavePtr = boost::intrusive_ptr<Shockwave> ;
 	Render::Texture* m_texture;
+	std::unique_ptr<Bomb> m_bomb;
 	std::vector<MonsterPtr> m_monsters;
-	//std::unique_ptr<Monster> m_monster;
-	//Render::Animation* m_animation;
-//	Render::SpritePtr m_sprite;
-//	std::vector<BubblePtr> m_bubbles;
-//    std::unique_ptr<Render::SpriteBatch> m_spriteBatch;
+	std::vector<ShockwavePtr> m_activeShockwaves;
+	SpritePool<Shockwave> m_shockwavePool;
 };
 

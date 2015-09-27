@@ -50,11 +50,11 @@ void TestWidget::Draw()
 		//
 		// При вызове метода Texture::Draw() вызывать Texture::Bind() необязательно.
 		//
-		_tex1->Draw();
+		//_tex1->Draw();
 	}
 	else
 	{
-		IRect texRect = _tex2->getBitmapRect();
+		//IRect texRect = _tex2->getBitmapRect();
 
 		//
 		// При отрисовке текстуры можно вручную задавать UV координаты той части текстуры,
@@ -65,18 +65,18 @@ void TestWidget::Draw()
 		// будет размножена по этой стороне соответствующее количество раз).
 		//
 
-		FRect rect(texRect);
-		FRect uv(0, 1, 0, 1);
+		//FRect rect(texRect);
+		//FRect uv(0, 1, 0, 1);
 
-		_tex2->TranslateUV(rect, uv);
+		//_tex2->TranslateUV(rect, uv);
 
-		Render::device.MatrixScale(_scale);
-		Render::device.MatrixTranslate(-texRect.width * 0.5f, -texRect.height * 0.5f, 0.0f);
+		//Render::device.MatrixScale(_scale);
+		//Render::device.MatrixTranslate(-texRect.width * 0.5f, -texRect.height * 0.5f, 0.0f);
 
 		//
 		// Привязываем текстуру.
 		//
-		_tex2->Bind();
+		//_tex2->Bind();
 		
 		//
 		// Метод DrawRect() выводит в графическое устройство квадратный спрайт, состоящий их двух
@@ -86,7 +86,7 @@ void TestWidget::Draw()
 		// Перед вызовом DrawRect() должен быть вызов Texture::Bind(), либо SetTexturing(false),
 		// иначе визуальный результат будет непредсказуемым.
 		//
-		Render::DrawRect(rect, uv);
+		//Render::DrawRect(rect, uv);
 	}
 
 	//
@@ -103,7 +103,7 @@ void TestWidget::Draw()
 	//
 	// Метод BeginColor() проталкивает в стек текущий цвет вершин и устанавливает новый.
 	//
-	Render::BeginColor(Color(255, 128, 0, 255));
+	//Render::BeginColor(Color(255, 128, 0, 255));
 	
 	//
 	// Метод DrawRect() выводит в графическое устройство квадратный спрайт, состоящий их двух
@@ -113,12 +113,12 @@ void TestWidget::Draw()
 	// Перед вызовом DrawRect() должен быть вызов Texture::Bind(), либо SetTexturing(false),
 	// иначе визуальный результат будет непредсказуемым.
 	//
-	Render::DrawRect(668, 0, 100, 100);
+	//Render::DrawRect(668, 0, 100, 100);
 	
 	//
 	// Метод EndColor() снимает со стека текущий цвет вершин, восстанавливая прежний.
 	//
-	Render::EndColor();
+	//Render::EndColor();
 	
 	//
 	// Опять включаем текстурирование.

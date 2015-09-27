@@ -3,11 +3,6 @@
 #include "TestWidget.h"
 #include "GameView.h"
 
-enum {
-	WINDOW_WIDTH = 768,
-	WINDOW_HEIGHT = 1024
-};
-
 TestAppDelegate::TestAppDelegate()
 {
 }
@@ -49,7 +44,7 @@ void TestAppDelegate::LoadResources()
 }
 
 void TestAppDelegate::OnPostDraw() {
-	Core::appInstance->WaitForFixedFpsOrLoadResources(Core::SleepPolicy::Allow);
+	//Core::appInstance->WaitForFixedFpsOrLoadResources(Core::SleepPolicy::Allow);
 	if (!Render::isFontLoaded("arial"))
 		return;
 

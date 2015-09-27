@@ -39,7 +39,7 @@ public:
 	IRect GetGlobalBounds() const;
 
 private:
-	virtual void Init(void);
+	void Init(void);
 
 private:
 	Color m_color;

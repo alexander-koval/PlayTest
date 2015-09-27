@@ -2,8 +2,9 @@
 #include "Monster.h"
 
 
-Monster::Monster() 
-	: m_position()
+Monster::Monster()
+	: Gameable()
+	, m_isAlive(true)
 	, m_velocity()
 	, m_idle()
 	, m_die()
@@ -22,7 +23,7 @@ void Monster::Draw()
 	Render::Animation* current = m_current.get();
 	if (current)
 	{
-		current->Draw(m_position);
+		current->Draw(IPoint(m_position.x - Width() * .5f, m_position.y - Height() * .5f));
 	}
 }
 
@@ -35,16 +36,6 @@ void Monster::Update(float dt)
 		m_position.y += m_velocity.y * dt;
 		current->Update(dt);
 	}
-}
-
-void Monster::SetPosition(const IPoint& position)
-{
-	m_position = position;
-}
-
-const IPoint& Monster::GetPosition() const
-{
-	return m_position;
 }
 
 void Monster::SetVelocity(const math::Vector3& velocity)
@@ -84,14 +75,14 @@ int Monster::Height() const
 	return 0;
 }
 
-IRect Monster::GetLocalBounds() const
+bool Monster::IsAlive() const
 {
-	return IRect(0, 0, Width(), Height());
+	return m_isAlive;
 }
 
-IRect Monster::GetGlobalBounds() const
+void Monster::SetAlive(bool alive)
 {
-	return IRect(m_position.x, m_position.y, Width(), Height());
+	m_isAlive = alive;
 }
 
 void Monster::Init()
@@ -99,6 +90,5 @@ void Monster::Init()
 	m_idle.reset(Core::resourceManager.Get<Render::Animation>("Bianfu1Idle")->Clone());
 	m_die.reset(Core::resourceManager.Get<Render::Animation>("Bianfu1Die")->Clone());
 	m_idle->setCurrentFrame(math::random(m_idle->getFirstPlayedFrame(), m_idle->getLastPlayedFrame()));
-//	m_idle->setPlayback(true);
 	m_current = m_idle;	
 }
