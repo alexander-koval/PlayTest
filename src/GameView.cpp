@@ -16,6 +16,9 @@ GameView::GameView(const std::string& name, rapidxml::xml_node<>* elem)
 	, m_shockwaves()
     , m_monsterPool(MONSTER_COUNT, 0)
 	, m_shockwavePool(SHOCKWAVE_COUNT, SHOCKWAVE_COUNT)
+	, m_effects()
+	, m_shadow()
+
 {
     width = 768;//TestAppDelegate::WINDOW_WIDTH;
     height = 1024;//TestAppDelegate::WINDOW_HEIGHT;
@@ -39,6 +42,7 @@ void GameView::Draw()
 		if (*it) (*it)->Draw();
 	}
 	m_bomb->Draw();
+	m_effects.Draw();
 }
 
 void GameView::Update(float dt)
@@ -47,6 +51,7 @@ void GameView::Update(float dt)
     UpdateMonsters(dt);
     UpdateShockwaves(dt);
 	m_bomb->Update(dt);
+	m_effects.Update(dt);
 }
 
 void GameView::AcceptMessage(const Message& message)
@@ -74,7 +79,7 @@ void GameView::Init()
 	{
         MonsterPtr monster = m_monsterPool.get();
 		monster->SetPosition(IPoint(math::random(0, width - monster->Width()), math::random(0, height - monster->Height())));
-		monster->SetVelocity(math::random(-100, 100), math::random(-100, 100), 0);
+		monster->SetVelocity(math::random(-100, 100), math::random(-0, 0), 0);
         monster->SetState(Monster::StateAlive);
 		m_monsters.push_back(std::move(monster));
 	}
@@ -103,8 +108,12 @@ void GameView::UpdateMonsters(float dt) {
             monster->Update(dt);
             CollideWithShockwaves(*monster);
             if (monster->IsDead()) {
+				m_shadow = m_effects.AddEffect("Shadow");
+				m_shadow->posX = monster->GetPosition().x;
+				m_shadow->posY = monster->GetPosition().y;
                 m_monsterPool.set(monster);
                 it = m_monsters.erase(it);
+				m_shadow->Reset();
                 continue;
             }
         }

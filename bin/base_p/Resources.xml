@@ -29,7 +29,7 @@
     </animation>
     <animation id="Bianfu1Die" texture="Bianfu1" group="TestGroup" upload="false">
       <frames width="112" height="80" count="26" first="17" last="26"/>
-      <playback fps="24" play="1" loop="0" forward="1" pingpong="0"/>
+      <playback fps="60" play="1" loop="0" forward="1" pingpong="0"/>
     </animation>
   </Animations>
 </Resources>

@@ -51,5 +51,9 @@ private:
 	std::vector<ShockwavePtr> m_shockwaves;
     SpritePool<Monster> m_monsterPool;
 	SpritePool<Shockwave> m_shockwavePool;
+
+	EffectsContainer m_effects;
+	ParticleEffectPtr m_shadow;
+
 };
 

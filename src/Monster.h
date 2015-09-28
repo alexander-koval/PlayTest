@@ -52,7 +52,6 @@ private:
 	float m_wanderDistance;
 	float m_wanderRadius;
 	float m_wanderRange;
-
     States m_currentState;
 	math::Vector3 m_velocity;
 	intrusive_weak_ptr<Render::Animation> m_current;

@@ -2,11 +2,10 @@
 
 #include "Gameable.h"
 
-//namespace Render
-//{
-//	class Texture;
-//}
-class Render::Texture;
+namespace Render {
+class Texture;
+}
+
 class Bomb : public Gameable
 {
 public:

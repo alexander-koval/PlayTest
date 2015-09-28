@@ -5,12 +5,13 @@ Monster::Monster()
 	: Gameable()
 	, m_isAlive(true)
 	, m_wanderAngle(.0f)
-	, m_wanderDistance(300.f)
-	, m_wanderRadius(10.f)
-	, m_wanderRange(180.f)
+	, m_wanderDistance(200.f)
+	, m_wanderRadius(20.f)
+	, m_wanderRange(10.f)
     , m_currentState(StateAlive)
 	, m_velocity()
 	, m_current()
+	, m_animations()
 {
 	Init();
 }
@@ -41,7 +42,7 @@ void Monster::Update(float dt)
 		}
         if (IsDieing() && current->IsFinished()) {
             SetState(States::StateDead);
-        }
+		} 
 		current->Update(dt);
 	}
 }
@@ -87,8 +88,8 @@ void Monster::SetState(Monster::States state) {
     m_currentState = state;
     if (state != States::StateAlive) {
         SetVelocity(math::Vector3(0, 0, 0));
-    }
-    m_current = m_animations[state];
+    } 
+	m_current = m_animations[state];
 }
 
 bool Monster::IsAlive() const
@@ -111,6 +112,9 @@ void Monster::Init()
     m_animations[StateAlive] = idle;
     m_animations[StateDieing] = Core::resourceManager.Get<Render::Animation>("Bianfu1Die")->Clone();
     m_animations[StateDead] = boost::intrusive_ptr<Render::Animation>();
+
+	//m_explosion->posX = 100;
+	//m_explosion->posY = 100;
 }
 
 math::Vector3 Monster::Wander()
