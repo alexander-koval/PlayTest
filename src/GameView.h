@@ -25,18 +25,31 @@ public:
 
 private:
 	void Init();
+    
+    void Cleanup();
+    
+    void UpdateMonsters(float dt);
+    
+    void UpdateShockwaves(float dt);
+    
+    void SpawnMonster(const IPoint& position);
+    
+    void SpawnShockwave(const IPoint& position);
 
 	void CollideWithWall(Monster& monster);
-
+    
 	bool CollideWithShockwave(Monster& monster, Shockwave& shockwave);
 
+    void CollideWithShockwaves(Monster& monster);
+
 private:
-	using MonsterPtr = std::unique_ptr <Monster> ;
+	using MonsterPtr = boost::intrusive_ptr<Monster>;
 	using ShockwavePtr = boost::intrusive_ptr<Shockwave> ;
-	Render::Texture* m_texture;
+    Render::Texture* m_texture;
 	std::unique_ptr<Bomb> m_bomb;
 	std::vector<MonsterPtr> m_monsters;
-	std::vector<ShockwavePtr> m_activeShockwaves;
+	std::vector<ShockwavePtr> m_shockwaves;
+    SpritePool<Monster> m_monsterPool;
 	SpritePool<Shockwave> m_shockwavePool;
 };
 
