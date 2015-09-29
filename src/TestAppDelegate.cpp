@@ -9,12 +9,10 @@ enum {
 	WINDOW_HEIGHT = 1024
 };
 
-TestAppDelegate::TestAppDelegate()
-{
+TestAppDelegate::TestAppDelegate() {
 }
 
-void TestAppDelegate::GameContentSize(int deviceWidth, int deviceHeight, int &width, int &height)
-{
+void TestAppDelegate::GameContentSize(int deviceWidth, int deviceHeight, int& width, int& height) {
 	//
 	// Здесь задаётся размер игрового экрана в логических единицах.
 	//
@@ -25,13 +23,11 @@ void TestAppDelegate::GameContentSize(int deviceWidth, int deviceHeight, int &wi
 	height = WINDOW_HEIGHT;
 }
 
-void TestAppDelegate::ScreenMode(DeviceMode &mode)
-{
+void TestAppDelegate::ScreenMode(DeviceMode& mode) {
 	mode = DeviceMode::Windowed;
 }
 
-void TestAppDelegate::RegisterTypes()
-{
+void TestAppDelegate::RegisterTypes() {
 	//
 	// Чтобы можно было декларативно использовать виджет в xml по имени,
 	// его необходимо зарегистрировать таким образом.
@@ -41,8 +37,7 @@ void TestAppDelegate::RegisterTypes()
 	REGISTER_WIDGET_XML(TestWidget, "TestWidget");
 }
 
-void TestAppDelegate::LoadResources()
-{
+void TestAppDelegate::LoadResources() {
 	//
 	// Обычно в этом методе выполняется скрипт, в котором определяется,
 	// какие ресурсы нужно загрузить и какой игровой слой положить на экран.

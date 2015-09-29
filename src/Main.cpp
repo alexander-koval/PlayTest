@@ -1,10 +1,9 @@
 #include "stdafx.h"
 #include "TestAppDelegate.h"
 
-#define MYAPPLICATION_NAME "Test"
+#define MYAPPLICATION_NAME "Playable Test"
 
-int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow)
-{
+int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nCmdShow) {
 	ParticleSystem::SetTexturesPath("textures/Particles");
 
 	Core::fileSystem.SetWriteDirectory("./write_directory");
@@ -18,4 +17,3 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 
 	return 0;
 }
- 
