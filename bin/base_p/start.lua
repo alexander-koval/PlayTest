@@ -14,6 +14,7 @@ LoadEffects("Example2_Flames.xml")
 LoadEffects("Example3_FindObject.xml")
 LoadEffects("Shadow.xml")
 LoadEffects("Trail.xml")
+LoadEffects("BloodExplosion.xml")
 --
 -- Загрузка слоёв.
 --

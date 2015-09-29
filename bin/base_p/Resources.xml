@@ -15,6 +15,7 @@
     <texture id="Halo" path="textures/halo.png" group="TestGroup" upload="false"/>
     <texture id="Shockwave" path="textures/shockwave.png" group="TestGroup" upload="false"/>
     <texture id="Sparcle" path="textures/sparcle.png" group="TestGroup" upload="false"/>
+    <texture id="Eyes" path="textures/eyes.png" group="TestGroup" upload="false"/>
   </Textures>
   <!--<StreamingAnimation>
     <animation id="Bianfu1Animation" texture="Bianfu1">
@@ -24,12 +25,16 @@
   </StreamingAnimation>-->
   <Animations>
     <animation id="Bianfu1Idle" texture="Bianfu1" group="TestGroup" upload="false">
-      <frames width="112" height="80" count="26" first="1" last="16"/>
+      <frames width="56" height="40" count="26" first="1" last="16"/>
       <playback fps="24" play="1" loop="1" forward="1" pingpong="0"/>
     </animation>
     <animation id="Bianfu1Die" texture="Bianfu1" group="TestGroup" upload="false">
-      <frames width="112" height="80" count="26" first="17" last="26"/>
+      <frames width="56" height="40" count="26" first="17" last="26"/>
       <playback fps="60" play="1" loop="0" forward="1" pingpong="0"/>
+    </animation>
+    <animation id="EyeWatch" texture="Eyes" group="TestGroup" upload="false">
+      <frames width="91" height="95" count="8" first="1" last="8"/>
+      <playback fps="4" play="1" loop="1" forward="1" pingpong="1"/>
     </animation>
   </Animations>
 </Resources>

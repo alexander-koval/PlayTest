@@ -43,12 +43,15 @@ private:
 	void Init();
 
 private:
+	using EyesPtr = std::unique_ptr < Render::Animation > ;
 	float m_endScale;
 	float m_startScale;
 	float m_growTime;
 	float m_lifetime;
 	float m_elapsed;
 	bool m_isAlive;
-	Render::Texture* m_texture;
+	float m_rotation;
+	EyesPtr m_animation;
+	
 };
 

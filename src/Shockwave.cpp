@@ -10,7 +10,7 @@ Shockwave::Shockwave()
 , m_lifetime(0.f)
 , m_elapsed(0.f)
 , m_isAlive(true)
-, m_texture(nullptr)
+, m_animation()
 {
 	Init();
 }
@@ -23,6 +23,7 @@ void Shockwave::Invalidate()
 {
 	m_elapsed = 0.f;
 	m_isAlive = true;
+	m_rotation = math::random(0, 360);
 }
 
 void Shockwave::Draw()
@@ -30,8 +31,11 @@ void Shockwave::Draw()
 	Render::device.PushMatrix();
 	Render::device.MatrixTranslate(m_position.x, m_position.y, 0);
 	Render::device.MatrixScale(m_scale);
-	Render::device.MatrixTranslate(-m_texture->Width() * .5f, -m_texture->Height() * .5f, 0);
-	m_texture->Draw();
+	Render::device.MatrixRotate(math::Vector3(0, 0, 1), m_rotation);
+	Render::device.MatrixTranslate(-m_animation->getFrameWidth() * .5f, -m_animation->getFrameHeight() * .5f, 0);
+	Render::BeginAlphaMul((m_scale <= 1.f && m_scale > 0.f) ? m_scale : 1.f);
+	m_animation->Draw();
+	Render::EndAlphaMul();
 	Render::device.PopMatrix();
 }
 
@@ -53,13 +57,14 @@ void Shockwave::Update(float dt)
 	{
 		m_isAlive = false;
 	}
+	m_animation->Update(dt);
 }
 
 int Shockwave::Width() const
 {
-	if (m_texture)
+	if (m_animation)
 	{
-		return m_texture->Width() * m_scale;
+		return m_animation->getFrameWidth() * m_scale;
 	}
 	return 0;
 
@@ -67,16 +72,17 @@ int Shockwave::Width() const
 
 int Shockwave::Height() const
 { 
-	if (m_texture)
+	if (m_animation)
 	{
-		return m_texture->Height() * m_scale;
+		return m_animation->getFrameHeight() * m_scale;
 	}
 	return 0;
 }
 
 void Shockwave::Init()
 {
-	m_texture = Core::resourceManager.Get<Render::Texture>("Shockwave");
+	Invalidate();
+	m_animation.reset(Core::resourceManager.Get<Render::Animation>("EyeWatch")->Clone());
 }
 
 void Shockwave::SetEndScale(float scale)

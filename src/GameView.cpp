@@ -6,13 +6,13 @@
 #include "TestAppDelegate.h"
 
 static const int SHOCKWAVE_COUNT = 10;
-static const int MONSTER_COUNT = 10;
+static const int MONSTER_COUNT = 20;
 
 GameView::GameView(const std::string& name, rapidxml::xml_node<>* elem)
 	: GUI::Widget(name, elem)
 	, m_texture(nullptr)
 	, m_bomb(new Bomb())
-	, m_monsters()
+	, m_monsters(MONSTER_COUNT)
 	, m_shockwaves()
     , m_monsterPool(MONSTER_COUNT, 0)
 	, m_shockwavePool(SHOCKWAVE_COUNT, SHOCKWAVE_COUNT)
@@ -81,7 +81,7 @@ void GameView::Init()
 		monster->SetPosition(IPoint(math::random(0, width - monster->Width()), math::random(0, height - monster->Height())));
 		monster->SetVelocity(math::random(-100, 100), math::random(-0, 0), 0);
         monster->SetState(Monster::StateAlive);
-		m_monsters.push_back(std::move(monster));
+		m_monsters[index] = std::move(monster);
 	}
 }
 
@@ -100,39 +100,35 @@ void GameView::Cleanup() {
 }
 
 void GameView::UpdateMonsters(float dt) {
-    std::vector<MonsterPtr>::iterator it = m_monsters.begin();
-    while (it != m_monsters.end()) {
-        const MonsterPtr& monster = *it;
-        if (monster) {
-            CollideWithWall(*monster);
-            monster->Update(dt);
-            CollideWithShockwaves(*monster);
-            if (monster->IsDead()) {
+	for (std::size_t index = 0; index < m_monsters.size(); ++index) {
+		const MonsterPtr& monster = m_monsters[index];
+		if (monster) {
+			CollideWithWall(*monster);
+			monster->Update(dt);
+			CollideWithShockwaves(*monster);
+			if (monster->IsDead()) {
 				m_shadow = m_effects.AddEffect("Shadow");
 				m_shadow->posX = monster->GetPosition().x;
 				m_shadow->posY = monster->GetPosition().y;
                 m_monsterPool.set(monster);
-                it = m_monsters.erase(it);
+				std::swap(m_monsters[index], m_monsters.back());
+				m_monsters.resize(m_monsters.size() - 1);
 				m_shadow->Reset();
-                continue;
-            }
-        }
-        ++it;
-    }
+			}
+		}
+	}
 }
 
 void GameView::UpdateShockwaves(float dt) {
-    std::vector<ShockwavePtr>::iterator it = m_shockwaves.begin();
-    while (it != m_shockwaves.end()) {
-        const ShockwavePtr& shockwave = *it;
+	for (std::size_t index = 0; index < m_shockwaves.size(); ++index) {
+        const ShockwavePtr& shockwave = m_shockwaves[index];
         shockwave->Update(dt);
         if (!shockwave->IsAlive()) {
             m_shockwavePool.set(shockwave);
-            it = m_shockwaves.erase(it);
-            continue;
-        }
-        ++it;
-    }
+			std::swap(m_shockwaves[index], m_shockwaves.back());
+			m_shockwaves.resize(m_shockwaves.size() - 1);
+        }		
+	}
 }
 
 void GameView::SpawnMonster(const IPoint& position) {
