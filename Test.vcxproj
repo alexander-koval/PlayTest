@@ -115,6 +115,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\GameInfo.cpp" />
     <ClCompile Include="src\Shockwave.cpp" />
     <ClCompile Include="src\Bomb.cpp" />
     <ClCompile Include="src\Gameable.cpp" />
@@ -130,6 +131,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\GameInfo.h" />
     <ClInclude Include="src\Shockwave.h" />
     <ClInclude Include="src\SpritePool.h" />
     <ClInclude Include="src\Bomb.h" />

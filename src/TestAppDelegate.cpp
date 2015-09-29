@@ -55,7 +55,7 @@ void TestAppDelegate::OnPostDraw() {
 
 	int dy = Render::getFontHeight();
 	int x = Render::device.Width() - 5;
-	int y = Render::device.Height() - 20;
+	int y = 100;
 
 	Render::PrintString(x, y, std::string("FPS: ") + utils::lexical_cast(Core::appInstance->GetCurrentFps()), 1.0f, RightAlign, BottomAlign);
 	Render::PrintString(x, y -= dy, std::string("Video: ") + utils::lexical_cast(Render::device.GetVideoMemUsage() / 1024) + std::string("K"), 1.0f, RightAlign, BottomAlign);

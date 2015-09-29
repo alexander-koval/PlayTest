@@ -4,6 +4,9 @@
 		<font name="arial" family="arial" size="12" color="255;255;255;255" letterSpacing="0">
 			<Effect alpha="0.1" type="shadow" blurX="2" blurY="2" strength="50" angle="0" inner="false" color="0;0;0;255" offset="0"/>
 		</font>
+    <font name="Sansation" family="Sansation" size="25" color="255;165;0;255" letterSpacing="0">
+      <Effect alpha="0.1" type="shadow" blurX="2" blurY="2" strength="50" angle="0" inner="false" color="0;0;0;255" offset="0"/>
+    </font>
 	</FreeTypeFonts>
 	<Textures>
 		<texture id="Circle" path="textures/circle.png" group="TestGroup" upload="false"/>
@@ -25,11 +28,11 @@
   </StreamingAnimation>-->
   <Animations>
     <animation id="Bianfu1Idle" texture="Bianfu1" group="TestGroup" upload="false">
-      <frames width="56" height="40" count="26" first="1" last="16"/>
+      <frames width="112" height="80" count="26" first="1" last="16"/>
       <playback fps="24" play="1" loop="1" forward="1" pingpong="0"/>
     </animation>
     <animation id="Bianfu1Die" texture="Bianfu1" group="TestGroup" upload="false">
-      <frames width="56" height="40" count="26" first="17" last="26"/>
+      <frames width="112" height="80" count="26" first="17" last="26"/>
       <playback fps="60" play="1" loop="0" forward="1" pingpong="0"/>
     </animation>
     <animation id="EyeWatch" texture="Eyes" group="TestGroup" upload="false">

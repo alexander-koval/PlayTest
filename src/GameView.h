@@ -32,9 +32,7 @@ private:
     
     void UpdateShockwaves(float dt);
     
-    void SpawnMonster(const IPoint& position);
-    
-    void SpawnShockwave(const IPoint& position);
+    void SpawnCatcher(const IPoint& position);
 
 	void CollideWithWall(Monster& monster);
     
@@ -42,18 +40,23 @@ private:
 
     void CollideWithShockwaves(Monster& monster);
 
+	bool isLevelComplete() const;
+
+	bool isLevelFailed() const;
+
 private:
 	using MonsterPtr = boost::intrusive_ptr<Monster>;
 	using ShockwavePtr = boost::intrusive_ptr<Shockwave> ;
     Render::Texture* m_texture;
-	std::unique_ptr<Bomb> m_bomb;
 	std::vector<MonsterPtr> m_monsters;
-	std::vector<ShockwavePtr> m_shockwaves;
+	std::vector<ShockwavePtr> m_catchers;
     SpritePool<Monster> m_monsterPool;
-	SpritePool<Shockwave> m_shockwavePool;
+	SpritePool<Shockwave> m_catcherPool;
 
 	EffectsContainer m_effects;
 	ParticleEffectPtr m_shadow;
 
+	std::size_t m_leftCatchers;
+	std::size_t m_catchedMonsters;
 };
 
