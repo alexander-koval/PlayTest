@@ -2,12 +2,12 @@
 
 #include "Gameable.h"
 
-class Shockwave : public Gameable
+class Catcher : public Gameable
 {
 public:
-	Shockwave();
+	Catcher();
 
-	virtual ~Shockwave();
+	virtual ~Catcher();
 
 	void Invalidate();
 

@@ -2,6 +2,12 @@
 #include "TestAppDelegate.h"
 #include "TestWidget.h"
 #include "GameView.h"
+#include "MenuView.h"
+
+enum {
+	WINDOW_WIDTH = 768,
+	WINDOW_HEIGHT = 1024
+};
 
 TestAppDelegate::TestAppDelegate()
 {
@@ -30,6 +36,7 @@ void TestAppDelegate::RegisterTypes()
 	// Чтобы можно было декларативно использовать виджет в xml по имени,
 	// его необходимо зарегистрировать таким образом.
 	//
+	REGISTER_WIDGET_XML(MenuView, "MenuView");
 	REGISTER_WIDGET_XML(GameView, "GameView");
 	REGISTER_WIDGET_XML(TestWidget, "TestWidget");
 }

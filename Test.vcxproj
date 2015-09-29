@@ -115,8 +115,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\MenuView.cpp" />
     <ClCompile Include="src\GameInfo.cpp" />
-    <ClCompile Include="src\Shockwave.cpp" />
+    <ClCompile Include="src\Catcher.cpp" />
     <ClCompile Include="src\Bomb.cpp" />
     <ClCompile Include="src\Gameable.cpp" />
     <ClCompile Include="src\Monster.cpp" />
@@ -131,8 +132,9 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\MenuView.h" />
     <ClInclude Include="src\GameInfo.h" />
-    <ClInclude Include="src\Shockwave.h" />
+    <ClInclude Include="src\Catcher.h" />
     <ClInclude Include="src\SpritePool.h" />
     <ClInclude Include="src\Bomb.h" />
     <ClInclude Include="src\Gameable.h" />

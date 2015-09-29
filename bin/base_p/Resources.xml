@@ -16,7 +16,7 @@
     <texture id="Bianfu1" path="textures/bianfu1.png" group="TestGroup" upload="false"/>
     <texture id="Bomb" path="textures/bomb.png" group="TestGroup" upload="false"/>
     <texture id="Halo" path="textures/halo.png" group="TestGroup" upload="false"/>
-    <texture id="Shockwave" path="textures/shockwave.png" group="TestGroup" upload="false"/>
+    <texture id="Catcher" path="textures/shockwave.png" group="TestGroup" upload="false"/>
     <texture id="Sparcle" path="textures/sparcle.png" group="TestGroup" upload="false"/>
     <texture id="Eyes" path="textures/eyes.png" group="TestGroup" upload="false"/>
   </Textures>

@@ -2,7 +2,7 @@
 #include "GameView.h"
 #include "Bomb.h"
 #include "Monster.h"
-#include "Shockwave.h"
+#include "Catcher.h"
 #include "GameInfo.h"
 
 GameView::GameView(const std::string& name, rapidxml::xml_node<>* elem)
@@ -15,10 +15,10 @@ GameView::GameView(const std::string& name, rapidxml::xml_node<>* elem)
 	, m_effects()
 	, m_shadow()
 	, m_leftCatchers(0)
-	, m_catchedMonsters(0)
-{
-    width = 768;//TestAppDelegate::WINDOW_WIDTH;
-    height = 1024;//TestAppDelegate::WINDOW_HEIGHT;
+	, m_catchedMonsters(0) {
+	IRect size = Core::appInstance->GetMainWindow()->GetClientSizes();
+	width = size.width;
+	height = size.height;
 	Init();
 }
 
@@ -182,7 +182,7 @@ void GameView::CollideWithWall(Monster& monster)
 	}
 }
 
-bool GameView::CollideWithShockwave(Monster& monster, Shockwave& shockwave)
+bool GameView::CollideWithShockwave(Monster& monster, Catcher& shockwave)
 {
 	IPoint deltaPoint = monster.GetPosition() - shockwave.GetPosition();
 	float distance = std::sqrt(deltaPoint.x * deltaPoint.x + deltaPoint.y * deltaPoint.y);

@@ -5,11 +5,6 @@
 
 class TestAppDelegate : public Core::EngineAppDelegate {
 public:
-	enum {
-		WINDOW_WIDTH = 768,
-		WINDOW_HEIGHT = 1024
-	};
-
 	TestAppDelegate();
 
 	virtual void GameContentSize(int deviceWidth, int deviceHeight, int &width, int &height) override;
