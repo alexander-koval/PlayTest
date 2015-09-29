@@ -29,7 +29,6 @@ GameView::~GameView()
 void GameView::Draw()
 {
 	GUI::Widget::Draw();
-	IPoint mousePosition = Core::mainInput.GetMousePos();
 	for (std::vector<MonsterPtr>::iterator it = m_monsters.begin(); it != m_monsters.end(); ++it) {
 		if (*it) (*it)->Draw();
 	}
@@ -38,7 +37,6 @@ void GameView::Draw()
 		if (*it) (*it)->Draw();
 	}
 	m_effects.Draw();
-
 
 	Render::BindFont("Sansation");
 	if (isLevelFailed()) {
@@ -62,7 +60,9 @@ void GameView::Update(float dt)
 
 void GameView::AcceptMessage(const Message& message)
 {
-
+	if (message.getPublisher() == "Layer" && message.getData() == "LayerInit") {
+		MM::manager.PlayTrack("ambient", true, 1.0f);
+	}
 }
 
 bool GameView::MouseDown(const IPoint& mouse_pos) {
@@ -165,7 +165,8 @@ void GameView::SpawnCatcher(const IPoint& position) {
         shockwave->SetLifetime(1.f);
         shockwave->SetGrowTime(.5f);
         m_catchers.push_back(std::move(shockwave));
-    }
+		MM::manager.PlaySample("hide_in", false, 1.f);
+	}
 }
 
 void GameView::CollideWithWall(Monster& monster)
@@ -198,6 +199,7 @@ void GameView::CollideWithShockwaves(Monster& monster) {
                     monster.SetState(Monster::StateDieing);
                     SpawnCatcher(monster.GetPosition());
 					++m_catchedMonsters;
+					MM::manager.PlaySample("scream_01", false, 1.f);
                     break;
                 }
             }

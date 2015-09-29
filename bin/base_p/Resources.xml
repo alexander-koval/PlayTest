@@ -20,12 +20,6 @@
     <texture id="Sparcle" path="textures/sparcle.png" group="TestGroup" upload="false"/>
     <texture id="Eyes" path="textures/eyes.png" group="TestGroup" upload="false"/>
   </Textures>
-  <!--<StreamingAnimation>
-    <animation id="Bianfu1Animation" texture="Bianfu1">
-      <frames width="56" height="40" count="25" first="1" last="25"/>
-      <playback fps="24" play="1" loop="1" forward="1" pingpong="0"/>
-    </animation>    
-  </StreamingAnimation>-->
   <Animations>
     <animation id="Bianfu1Idle" texture="Bianfu1" group="TestGroup" upload="false">
       <frames width="112" height="80" count="26" first="1" last="16"/>
@@ -40,4 +34,10 @@
       <playback fps="4" play="1" loop="1" forward="1" pingpong="1"/>
     </animation>
   </Animations>
+  <Sounds group="GameSounds">
+    <sample id="ambient" path="sounds/bgm1019.ogg" mode="stream"/>
+    <sample id="hide_in" path="sounds/hide_in.ogg" mode="stream+cache"/>
+    <sample id="hide_out" path="sounds/hide_out.ogg" mode="stream+cache"/>
+    <sample id="scream_01" path="sounds/scream_01.ogg" mode="stream+cache"/> 
+  </Sounds>
 </Resources>
