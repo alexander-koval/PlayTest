@@ -11,7 +11,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectName>Test</ProjectName>
+    <ProjectName>PlayrixTest</ProjectName>
     <ProjectGuid>{21AF5959-2CF1-417D-90ED-70052151E734}</ProjectGuid>
     <RootNamespace>test</RootNamespace>
     <Keyword>Win32Proj</Keyword>
@@ -19,7 +19,7 @@
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
-    <PlatformToolset>v140_xp</PlatformToolset>
+    <PlatformToolset>v120</PlatformToolset>
     <CharacterSet>MultiByte</CharacterSet>
     <WholeProgramOptimization>false</WholeProgramOptimization>
   </PropertyGroup>
@@ -118,14 +118,11 @@
     <ClCompile Include="src\MenuView.cpp" />
     <ClCompile Include="src\GameInfo.cpp" />
     <ClCompile Include="src\Catcher.cpp" />
-    <ClCompile Include="src\Bomb.cpp" />
     <ClCompile Include="src\Gameable.cpp" />
     <ClCompile Include="src\Monster.cpp" />
-    <ClCompile Include="src\Bubble.cpp" />
     <ClCompile Include="src\GameView.cpp" />
     <ClCompile Include="src\Main.cpp" />
-    <ClCompile Include="src\TestAppDelegate.cpp" />
-    <ClCompile Include="src\TestWidget.cpp" />
+    <ClCompile Include="src\GameAppDelegate.cpp" />
     <ClCompile Include="src\stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -136,13 +133,10 @@
     <ClInclude Include="src\GameInfo.h" />
     <ClInclude Include="src\Catcher.h" />
     <ClInclude Include="src\SpritePool.h" />
-    <ClInclude Include="src\Bomb.h" />
     <ClInclude Include="src\Gameable.h" />
     <ClInclude Include="src\Monster.h" />
-    <ClInclude Include="src\Bubble.h" />
     <ClInclude Include="src\GameView.h" />
-    <ClInclude Include="src\TestAppDelegate.h" />
-    <ClInclude Include="src\TestWidget.h" />
+    <ClInclude Include="src\GameAppDelegate.h" />
     <ClInclude Include="src\stdafx.h" />
   </ItemGroup>
   <ItemGroup>

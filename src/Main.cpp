@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "TestAppDelegate.h"
+#include "GameAppDelegate.h"
 
 #define MYAPPLICATION_NAME "Playable Test"
 
@@ -13,7 +13,7 @@ int APIENTRY WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 
 	Core::Application::APPLICATION_NAME = MYAPPLICATION_NAME;
 
-	Core::RunApplicationWithDelegate(new TestAppDelegate());
+	Core::RunApplicationWithDelegate(new GameAppDelegate());
 
 	return 0;
 }

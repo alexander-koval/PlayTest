@@ -1,6 +1,5 @@
 #include "stdafx.h"
-#include "TestAppDelegate.h"
-#include "TestWidget.h"
+#include "GameAppDelegate.h"
 #include "GameView.h"
 #include "MenuView.h"
 
@@ -9,10 +8,10 @@ enum {
 	WINDOW_HEIGHT = 1024
 };
 
-TestAppDelegate::TestAppDelegate() {
+GameAppDelegate::GameAppDelegate() {
 }
 
-void TestAppDelegate::GameContentSize(int deviceWidth, int deviceHeight, int& width, int& height) {
+void GameAppDelegate::GameContentSize(int deviceWidth, int deviceHeight, int& width, int& height) {
 	//
 	// Здесь задаётся размер игрового экрана в логических единицах.
 	//
@@ -23,21 +22,20 @@ void TestAppDelegate::GameContentSize(int deviceWidth, int deviceHeight, int& wi
 	height = WINDOW_HEIGHT;
 }
 
-void TestAppDelegate::ScreenMode(DeviceMode& mode) {
+void GameAppDelegate::ScreenMode(DeviceMode& mode) {
 	mode = DeviceMode::Windowed;
 }
 
-void TestAppDelegate::RegisterTypes() {
+void GameAppDelegate::RegisterTypes() {
 	//
 	// Чтобы можно было декларативно использовать виджет в xml по имени,
 	// его необходимо зарегистрировать таким образом.
 	//
 	REGISTER_WIDGET_XML(MenuView, "MenuView");
 	REGISTER_WIDGET_XML(GameView, "GameView");
-	REGISTER_WIDGET_XML(TestWidget, "TestWidget");
 }
 
-void TestAppDelegate::LoadResources() {
+void GameAppDelegate::LoadResources() {
 	//
 	// Обычно в этом методе выполняется скрипт, в котором определяется,
 	// какие ресурсы нужно загрузить и какой игровой слой положить на экран.
@@ -45,7 +43,7 @@ void TestAppDelegate::LoadResources() {
 	Core::LuaExecuteStartupScript("start.lua");
 }
 
-void TestAppDelegate::OnPostDraw() {
+void GameAppDelegate::OnPostDraw() {
 	//Core::appInstance->WaitForFixedFpsOrLoadResources(Core::SleepPolicy::Allow);
 	if (!Render::isFontLoaded("arial"))
 		return;

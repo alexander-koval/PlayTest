@@ -1,11 +1,11 @@
-#ifndef __TESTAPPDELEGATE_H__
-#define __TESTAPPDELEGATE_H__
+#ifndef __GAMEAPPDELEGATE_H__
+#define __GAMEAPPDELEGATE_H__
 
 #pragma once
 
-class TestAppDelegate : public Core::EngineAppDelegate {
+class GameAppDelegate : public Core::EngineAppDelegate {
 public:
-	TestAppDelegate();
+	GameAppDelegate();
 
 	virtual void GameContentSize(int deviceWidth, int deviceHeight, int &width, int &height) override;
 	virtual void ScreenMode(DeviceMode &mode) override;
@@ -16,4 +16,4 @@ public:
 	virtual void OnPostDraw() override;
 };
 
-#endif // __TESTAPPDELEGATE_H__
+#endif // __GAMEAPPDELEGATE_H__

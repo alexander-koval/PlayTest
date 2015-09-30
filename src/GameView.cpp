@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include "GameView.h"
-#include "Bomb.h"
 #include "Monster.h"
 #include "Catcher.h"
 #include "GameInfo.h"
