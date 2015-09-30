@@ -1,5 +1,0 @@
-<Frames count="2" path="textures/particles/" group="Particles">
-	<frame x="1" y="1" width="30" height="30" innerX="1" innerY="1" frameWidth="32" frameHeight="32" path="adot"/>
-	<frame x="33" y="1" width="48" height="46" innerX="5" innerY="5" frameWidth="59" frameHeight="59" path="drops"/>
-</Frames>
-
