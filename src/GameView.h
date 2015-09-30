@@ -19,8 +19,6 @@ public:
 	virtual void AcceptMessage(const Message& message) override;
 
 	virtual bool MouseDown(const IPoint& mouse_pos) override;
-	virtual void MouseMove(const IPoint& mouse_pos) override;
-	virtual void MouseUp(const IPoint& mouse_pos) override;
 
 private:
 	void Init();

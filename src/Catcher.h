@@ -35,6 +35,10 @@ public:
 
 	float GetGrowTime() const;
 
+	void SetHideTIme(float time);
+
+	float GetHideTime() const;
+
 	float GetRadius() const;
 
 	bool IsAlive() const;
@@ -47,6 +51,7 @@ private:
 	float m_endScale;
 	float m_startScale;
 	float m_growTime;
+	float m_hideTime;
 	float m_lifetime;
 	float m_elapsed;
 	bool m_isAlive;

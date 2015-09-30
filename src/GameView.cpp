@@ -3,17 +3,18 @@
 #include "Monster.h"
 #include "Catcher.h"
 #include "GameInfo.h"
+#include "Game.h"
 
 GameView::GameView(const std::string& name, rapidxml::xml_node<>* elem)
 	: GUI::Widget(name, elem)
 	  , m_texture(nullptr)
-	  , m_monsters(GameInfo::instance().getNumMonsters())
+	  , m_monsters(Game::instance().GetGameInfo().getNumMonsters())
 	  , m_catchers()
-	  , m_monsterPool(GameInfo::instance().getNumMonsters(), GameInfo::instance().getNumMonsters())
-	  , m_catcherPool(GameInfo::instance().getNumCatchers(), GameInfo::instance().getNumCatchers())
+	  , m_monsterPool(Game::instance().GetGameInfo().getNumMonsters(), Game::instance().GetGameInfo().getNumMonsters())
+	  , m_catcherPool(Game::instance().GetGameInfo().getNumCatchers(), Game::instance().GetGameInfo().getNumCatchers())
 	  , m_effects()
 	  , m_shadow()
-	  , m_trails(GameInfo::instance().getNumMonsters())
+	  , m_trails(Game::instance().GetGameInfo().getNumMonsters())
 	  , m_leftCatchers(0)
 	  , m_catchedMonsters(0) {
 	IRect size = Core::appInstance->GetMainWindow()->GetClientSizes();
@@ -43,8 +44,8 @@ void GameView::Draw() {
 		Render::PrintString(width / 2, height / 2, "LEVEL COMPLETE\nPress RIGHT MOUSE BUTTON to continue", 1.f, CenterAlign, BaseLineAlign);
 	}
 
-	Render::PrintString(width - 100, height - 10, "Level: " + std::to_string(GameInfo::instance().getCurrentLevel()));
-	Render::PrintString(10, height - 10, "Monsters Catched: " + std::to_string(m_catchedMonsters) + " from " + std::to_string(GameInfo::instance().getNumMonstersToCatch()));
+	Render::PrintString(width - 100, height - 10, "Level: " + std::to_string(Game::instance().GetGameInfo().getCurrentLevel()));
+	Render::PrintString(10, height - 10, "Monsters Catched: " + std::to_string(m_catchedMonsters) + " from " + std::to_string(Game::instance().GetGameInfo().getNumMonstersToCatch()));
 	Render::PrintString(10, height - 40, "Catchers: " + std::to_string(m_leftCatchers));
 }
 
@@ -65,7 +66,7 @@ bool GameView::MouseDown(const IPoint& mouse_pos) {
 	if (Core::mainInput.GetMouseRightButton()) {
 		if (isLevelComplete() || isLevelFailed()) {
 			if (isLevelComplete()) {
-				GameInfo::instance().nextLevel();
+				Game::instance().GetGameInfo().nextLevel();
 			}
 			Cleanup();
 			Init();
@@ -79,16 +80,10 @@ bool GameView::MouseDown(const IPoint& mouse_pos) {
 	return false;
 }
 
-void GameView::MouseMove(const IPoint& mouse_pos) {
-}
-
-void GameView::MouseUp(const IPoint& mouse_pos) {
-}
-
 void GameView::Init() {
 	m_catchedMonsters = 0;
-	m_leftCatchers = GameInfo::instance().getNumCatchers();
-	size_t numMonsters = GameInfo::instance().getNumMonsters();
+	m_leftCatchers = Game::instance().GetGameInfo().getNumCatchers();
+	size_t numMonsters = Game::instance().GetGameInfo().getNumMonsters();
 	m_trails.resize(numMonsters);
 	m_catchers.reserve(m_leftCatchers);
 	for (std::size_t index = 0; index < numMonsters; ++index) {
@@ -107,7 +102,7 @@ void GameView::Init() {
 void GameView::Cleanup() {
 	m_catchedMonsters = 0;
 	m_leftCatchers = 0;
-	int numMonsters = GameInfo::instance().getNumMonsters();
+	int numMonsters = Game::instance().GetGameInfo().getNumMonsters();
 	std::vector<MonsterPtr> monsters(numMonsters);
 	m_monsters.swap(monsters);
 	for (std::vector<MonsterPtr>::iterator it = monsters.begin(); it != monsters.end(); ++it) {
@@ -162,6 +157,7 @@ void GameView::UpdateCatchers(float dt) {
 }
 
 void GameView::SpawnCatcher(const IPoint& position) {
+	const GameInfo& gameInfo = Game::instance().GetGameInfo();
 	CatchersPtr catcher = m_catcherPool.get();
 	if (catcher) {
 		catcher->Invalidate();
@@ -169,8 +165,9 @@ void GameView::SpawnCatcher(const IPoint& position) {
 		catcher->SetStartScale(.01f);
 		catcher->SetEndScale(1.f);
 		catcher->SetScale(.1f);
-		catcher->SetLifetime(1.f);
-		catcher->SetGrowTime(.5f);
+		catcher->SetLifetime(gameInfo.getCatcherBornTime() + gameInfo.getCatcherLifetime());
+		catcher->SetGrowTime(gameInfo.getCatcherBornTime());
+		catcher->SetHideTIme(gameInfo.getCatcherHidetime());
 		m_catchers.push_back(std::move(catcher));
 		MM::manager.PlaySample("hide_in", false, 1.f);
 	}
@@ -212,12 +209,12 @@ void GameView::CollideWithCatchers(Monster& monster) {
 }
 
 bool GameView::isLevelComplete() const {
-	const GameInfo& gameInfo = GameInfo::instance();
+	const GameInfo& gameInfo = Game::instance().GetGameInfo();
 	size_t numMonstersToCatch = gameInfo.getNumMonstersToCatch();
 	return (numMonstersToCatch <= m_catchedMonsters);
 }
 
 bool GameView::isLevelFailed() const {
-	const GameInfo& gameInfo = GameInfo::instance();
+	const GameInfo& gameInfo = Game::instance().GetGameInfo();
 	return (m_leftCatchers <= 0 && m_catchers.size() == 0 && !isLevelComplete());
 }

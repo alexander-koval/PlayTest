@@ -5,9 +5,9 @@
 class GameInfo
 {
 public:
-	static GameInfo& instance();
-
 	GameInfo();
+
+	GameInfo(const std::map<std::string, float>& configMap);
 
 	bool nextLevel();
 
@@ -23,14 +23,28 @@ public:
 
 	size_t numLevels() const;
 
+	float getCatcherBornTime() const;
+
+	float getCatcherLifetime() const;
+
+	float getCatcherHidetime() const;
+
+	bool isDevelopMode() const;
+
 private:
+	void InitLevels();
+
 	struct LevelInfo {
 		size_t numCatchers;
 		size_t numMonstersToCatch;
 		size_t numMonsters;
 	};
 
+	bool m_isDevelopMode;
 	size_t m_currentLevel;
+	float m_catcherBornTime;
+	float m_catcherLifetime;
+	float m_catcherHidetime;
 	std::map<size_t, LevelInfo> m_levels;
 };
 

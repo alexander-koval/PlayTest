@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <Resources>
-	<FreeTypeFonts group="TestGroup" upload="false">
+	<FreeTypeFonts group="GameGroup" upload="false">
 		<font name="arial" family="arial" size="12" color="255;255;255;255" letterSpacing="0">
 			<Effect alpha="0.1" type="shadow" blurX="2" blurY="2" strength="50" angle="0" inner="false" color="0;0;0;255" offset="0"/>
 		</font>
@@ -9,20 +9,20 @@
     </font>
 	</FreeTypeFonts>
 	<Textures>
-    <texture id="Background" path="textures/bg.png" group="TestGroup" upload="false"/>
-    <texture id="Bianfu1" path="textures/bianfu1.png" group="TestGroup" upload="false"/>
-    <texture id="Eyes" path="textures/eyes.png" group="TestGroup" upload="false"/>
+    <texture id="Background" path="textures/bg.png" group="GameGroup" upload="false"/>
+    <texture id="Bianfu1" path="textures/bianfu1.png" group="GameGroup" upload="false"/>
+    <texture id="Eyes" path="textures/eyes.png" group="GameGroup" upload="false"/>
   </Textures>
   <Animations>
-    <animation id="Bianfu1Idle" texture="Bianfu1" group="TestGroup" upload="false">
+    <animation id="Bianfu1Idle" texture="Bianfu1" group="GameGroup" upload="false">
       <frames width="112" height="80" count="26" first="1" last="16"/>
       <playback fps="24" play="1" loop="1" forward="1" pingpong="0"/>
     </animation>
-    <animation id="Bianfu1Die" texture="Bianfu1" group="TestGroup" upload="false">
+    <animation id="Bianfu1Die" texture="Bianfu1" group="GameGroup" upload="false">
       <frames width="112" height="80" count="26" first="17" last="26"/>
       <playback fps="60" play="1" loop="0" forward="1" pingpong="0"/>
     </animation>
-    <animation id="EyeWatch" texture="Eyes" group="TestGroup" upload="false">
+    <animation id="EyeWatch" texture="Eyes" group="GameGroup" upload="false">
       <frames width="91" height="95" count="8" first="1" last="8"/>
       <playback fps="4" play="1" loop="1" forward="1" pingpong="1"/>
     </animation>

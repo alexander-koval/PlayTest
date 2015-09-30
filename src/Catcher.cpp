@@ -7,6 +7,7 @@ Catcher::Catcher()
 	  , m_endScale(1.f)
 	  , m_startScale(.1f)
 	  , m_growTime(0.f)
+	  , m_hideTime(0.f)
 	  , m_lifetime(0.f)
 	  , m_elapsed(0.f)
 	  , m_isAlive(true)
@@ -40,9 +41,9 @@ void Catcher::Update(float dt) {
 		m_scale += (m_endScale - m_startScale) / m_growTime * dt;
 	}
 	if (m_lifetime < m_elapsed && m_scale > 0.f) {
-		m_scale -= (m_endScale - m_startScale) / 0.5f * dt;
+		m_scale -= (m_endScale - m_startScale) / m_hideTime * dt;
 	}
-	if (m_elapsed < m_lifetime + 0.5f) {
+	if (m_elapsed < m_lifetime + m_hideTime) {
 		m_elapsed += dt;
 	} else {
 		m_isAlive = false;
@@ -100,6 +101,14 @@ void Catcher::SetGrowTime(float time) {
 
 float Catcher::GetGrowTime() const {
 	return m_growTime;
+}
+
+void Catcher::SetHideTIme(float time) {
+	m_hideTime = time;
+}
+
+float Catcher::GetHideTime() const {
+	return m_hideTime;
 }
 
 float Catcher::GetRadius() const {

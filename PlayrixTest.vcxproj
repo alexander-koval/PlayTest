@@ -115,6 +115,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="src\Game.cpp" />
     <ClCompile Include="src\MenuView.cpp" />
     <ClCompile Include="src\GameInfo.cpp" />
     <ClCompile Include="src\Catcher.cpp" />
@@ -127,8 +128,10 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="src\Utils.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Game.h" />
     <ClInclude Include="src\MenuView.h" />
     <ClInclude Include="src\GameInfo.h" />
     <ClInclude Include="src\Catcher.h" />
@@ -138,6 +141,7 @@
     <ClInclude Include="src\GameView.h" />
     <ClInclude Include="src\GameAppDelegate.h" />
     <ClInclude Include="src\stdafx.h" />
+    <ClInclude Include="src\Utils.h" />
   </ItemGroup>
   <ItemGroup>
     <Xml Include="bin\base_p\Layers.xml" />
