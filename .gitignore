@@ -1,9 +1,9 @@
-Test.opensdf
+*.opensdf
 *.vs
-Test.sdf
-Test.v12.suo
-Test.vcxproj.filters
-Test.vcxproj.user
+*.sdf
+*.v12.suo
+*.vcxproj.filters
+*.vcxproj.user
 obj/Debug
 ipch/TEST-45626c78 ipch/test-152580d8
 ipch/TEST-45626c78 ipch/test-152580d8
