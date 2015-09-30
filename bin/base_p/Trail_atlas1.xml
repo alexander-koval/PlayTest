@@ -1,4 +1,4 @@
 <Frames count="1" path="textures/particles/" group="Particles">
-	<frame x="1" y="1" width="22" height="22" innerX="1" innerY="1" frameWidth="24" frameHeight="24" path="adot"/>
+	<frame x="1" y="1" width="21" height="20" innerX="9" innerY="8" frameWidth="37" frameHeight="37" path="star"/>
 </Frames>
 

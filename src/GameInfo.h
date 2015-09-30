@@ -13,24 +13,24 @@ public:
 
 	void setCurrentLevel(int value);
 
-	int getCurrentLevel() const;
+	size_t getCurrentLevel() const;
 	
-	int getNumMonsters() const;
+	size_t getNumMonsters() const;
 
-	int getNumCatchers() const;
+	size_t getNumCatchers() const;
 
-	int getNumMonstersToCatch() const;
+	size_t getNumMonstersToCatch() const;
 
-	int numLevels() const;
+	size_t numLevels() const;
 
 private:
 	struct LevelInfo {
-		int numCatchers;
-		int numMonstersToCatch;
-		int numMonsters;
+		size_t numCatchers;
+		size_t numMonstersToCatch;
+		size_t numMonsters;
 	};
 
-	int m_currentLevel;
-	std::map<int, LevelInfo> m_levels;
+	size_t m_currentLevel;
+	std::map<size_t, LevelInfo> m_levels;
 };
 

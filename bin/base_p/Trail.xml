@@ -1,23 +1,17 @@
 <Effects version="2">
 	<Effect name="Trail">
-		<ParticleSystem name="Trail" numOfParticles="10" lifeInitial="0.9" lifeVariation="0.24" startTime="1.0" deadCountTime="0.0" bornTime="0.0" additive="true" linkedParticles="false" needStartDeadCounter="false" orientParticles="false" isVelocity="false" isEqual="false" hotPointX="0.5" hotPointY="0.5" texture="adot" emitterType="point" showEmitter="false" emitterAngle="0.0" emitterRange="360.0" emitterOrientation="0.0" lineLength="0" rectWidth="0" rectHeight="0" ellipseRHor="0" ellipseRVert="0" ellipseThickness="0" isAnimation="false" frameWidth="1" frameHeight="1" isScaledNonproportional="false" isEqualCreateTime="true">
+		<ParticleSystem name="Trail" numOfParticles="10" lifeInitial="0.9" lifeVariation="0.24" startTime="1.0" deadCountTime="0.0" bornTime="0.0" additive="true" linkedParticles="false" needStartDeadCounter="false" orientParticles="false" isVelocity="false" isEqual="false" hotPointX="0.5" hotPointY="0.5" texture="star" emitterType="point" showEmitter="false" emitterAngle="0.0" emitterRange="360.0" emitterOrientation="0.0" lineLength="0" rectWidth="0" rectHeight="0" ellipseRHor="0" ellipseRVert="0" ellipseThickness="0" isAnimation="false" frameWidth="1" frameHeight="1" isScaledNonproportional="false" isEqualCreateTime="true">
 			<Param name="x" similar="false" removal="0.0">
-				<Key time="0.0" fixedGrad="false" valueLower="0.0" valueUpper="0.0" lgradLower="0.0" lgradUpper="0.0" rgradLower="0.0" rgradUpper="0.0"/>
-				<Key time="0.17" fixedGrad="false" valueLower="-2.32" valueUpper="2.5" lgradLower="0.0" lgradUpper="0.0" rgradLower="0.0" rgradUpper="0.0"/>
-				<Key time="0.33" fixedGrad="false" valueLower="-42.573" valueUpper="41.733" lgradLower="0.0" lgradUpper="0.0" rgradLower="0.0" rgradUpper="0.0"/>
-				<Key time="0.52" fixedGrad="false" valueLower="-2.72" valueUpper="2.1" lgradLower="0.0" lgradUpper="0.0" rgradLower="0.0" rgradUpper="0.0"/>
-				<Key time="1.0" fixedGrad="false" valueLower="-97.668" valueUpper="97.668" lgradLower="0.0" lgradUpper="0.0" rgradLower="0.0" rgradUpper="0.0"/>
+				<Key time="0.0" fixedGrad="false" valueLower="-24.332" valueUpper="24.332" lgradLower="0.0" lgradUpper="0.0" rgradLower="0.0" rgradUpper="0.0"/>
+				<Key time="1.0" fixedGrad="false" valueLower="-2.782" valueUpper="2.782" lgradLower="0.0" lgradUpper="0.0" rgradLower="0.0" rgradUpper="0.0"/>
 			</Param>
 			<Param name="y" similar="false" removal="0.0">
-				<Key time="0.0" fixedGrad="false" valueLower="0.0" valueUpper="0.0" lgradLower="0.0" lgradUpper="0.0" rgradLower="0.0" rgradUpper="0.0"/>
-				<Key time="0.17" fixedGrad="false" valueLower="-2.98" valueUpper="3.48" lgradLower="0.0" lgradUpper="0.0" rgradLower="0.0" rgradUpper="0.0"/>
-				<Key time="0.33" fixedGrad="false" valueLower="-23.39" valueUpper="22.39" lgradLower="0.0" lgradUpper="0.0" rgradLower="0.0" rgradUpper="0.0"/>
-				<Key time="0.5" fixedGrad="false" valueLower="-3.99" valueUpper="3.49" lgradLower="0.0" lgradUpper="0.0" rgradLower="0.0" rgradUpper="0.0"/>
-				<Key time="1.0" fixedGrad="false" valueLower="-37.22" valueUpper="37.22" lgradLower="0.0" lgradUpper="0.0" rgradLower="0.0" rgradUpper="0.0"/>
+				<Key time="0.0" fixedGrad="false" valueLower="-25.407" valueUpper="25.407" lgradLower="0.0" lgradUpper="0.0" rgradLower="0.0" rgradUpper="0.0"/>
+				<Key time="1.0" fixedGrad="false" valueLower="-0.53" valueUpper="0.53" lgradLower="0.0" lgradUpper="0.0" rgradLower="0.0" rgradUpper="0.0"/>
 			</Param>
 			<Param name="size" similar="false" removal="0.0">
-				<Key time="0.0" fixedGrad="false" valueLower="5.01" valueUpper="12.17" lgradLower="0.0" lgradUpper="0.0" rgradLower="0.0" rgradUpper="0.0"/>
-				<Key time="1.0" fixedGrad="false" valueLower="4.02" valueUpper="4.02" lgradLower="0.0" lgradUpper="0.0" rgradLower="0.0" rgradUpper="0.0"/>
+				<Key time="0.0" fixedGrad="false" valueLower="-18.501" valueUpper="18.501" lgradLower="0.0" lgradUpper="0.0" rgradLower="0.0" rgradUpper="0.0"/>
+				<Key time="1.0" fixedGrad="false" valueLower="-0.173" valueUpper="-0.173" lgradLower="0.0" lgradUpper="0.0" rgradLower="0.0" rgradUpper="0.0"/>
 			</Param>
 			<Param name="angle" similar="false" removal="0.0">
 				<Key time="0.0" fixedGrad="true" valueLower="0.0" valueUpper="0.0" lgradLower="0.0" lgradUpper="0.0" rgradLower="0.0" rgradUpper="0.0"/>
@@ -29,27 +23,27 @@
 				<Key time="0.0" fixedGrad="true" valueLower="0.0" valueUpper="0.0" lgradLower="0.0" lgradUpper="0.0" rgradLower="0.0" rgradUpper="0.0"/>
 			</Param>
 			<Param name="red" similar="false" removal="0.0">
-				<Key time="0.0" fixedGrad="false" valueLower="255.0" valueUpper="255.0" lgradLower="0.0" lgradUpper="0.0" rgradLower="0.0" rgradUpper="0.0"/>
-				<Key time="0.14" fixedGrad="false" valueLower="242.0" valueUpper="242.0" lgradLower="0.0" lgradUpper="0.0" rgradLower="0.0" rgradUpper="0.0"/>
-				<Key time="0.76" fixedGrad="false" valueLower="216.0" valueUpper="216.0" lgradLower="0.0" lgradUpper="0.0" rgradLower="0.0" rgradUpper="0.0"/>
+				<Key time="0.0" fixedGrad="false" valueLower="230.287" valueUpper="230.287" lgradLower="0.0" lgradUpper="0.0" rgradLower="0.0" rgradUpper="0.0"/>
+				<Key time="0.155" fixedGrad="false" valueLower="200.92" valueUpper="200.92" lgradLower="0.0" lgradUpper="0.0" rgradLower="0.0" rgradUpper="0.0"/>
+				<Key time="0.651" fixedGrad="false" valueLower="216.0" valueUpper="216.0" lgradLower="0.0" lgradUpper="0.0" rgradLower="0.0" rgradUpper="0.0"/>
 				<Key time="1.0" fixedGrad="false" valueLower="60.0" valueUpper="60.0" lgradLower="0.0" lgradUpper="0.0" rgradLower="0.0" rgradUpper="0.0"/>
 			</Param>
 			<Param name="green" similar="false" removal="0.0">
 				<Key time="0.0" fixedGrad="false" valueLower="255.0" valueUpper="255.0" lgradLower="0.0" lgradUpper="0.0" rgradLower="0.0" rgradUpper="0.0"/>
-				<Key time="0.14" fixedGrad="false" valueLower="211.0" valueUpper="211.0" lgradLower="0.0" lgradUpper="0.0" rgradLower="0.0" rgradUpper="0.0"/>
-				<Key time="0.76" fixedGrad="false" valueLower="116.0" valueUpper="116.0" lgradLower="0.0" lgradUpper="0.0" rgradLower="0.0" rgradUpper="0.0"/>
+				<Key time="0.155" fixedGrad="false" valueLower="144.477" valueUpper="144.477" lgradLower="0.0" lgradUpper="0.0" rgradLower="0.0" rgradUpper="0.0"/>
+				<Key time="0.651" fixedGrad="false" valueLower="116.0" valueUpper="116.0" lgradLower="0.0" lgradUpper="0.0" rgradLower="0.0" rgradUpper="0.0"/>
 				<Key time="1.0" fixedGrad="false" valueLower="157.0" valueUpper="157.0" lgradLower="0.0" lgradUpper="0.0" rgradLower="0.0" rgradUpper="0.0"/>
 			</Param>
 			<Param name="blue" similar="false" removal="0.0">
 				<Key time="0.0" fixedGrad="false" valueLower="255.0" valueUpper="255.0" lgradLower="0.0" lgradUpper="0.0" rgradLower="0.0" rgradUpper="0.0"/>
-				<Key time="0.14" fixedGrad="false" valueLower="130.0" valueUpper="130.0" lgradLower="0.0" lgradUpper="0.0" rgradLower="0.0" rgradUpper="0.0"/>
-				<Key time="0.76" fixedGrad="false" valueLower="16.0" valueUpper="16.0" lgradLower="0.0" lgradUpper="0.0" rgradLower="0.0" rgradUpper="0.0"/>
+				<Key time="0.155" fixedGrad="false" valueLower="106.397" valueUpper="123.138" lgradLower="0.0" lgradUpper="0.0" rgradLower="0.0" rgradUpper="0.0"/>
+				<Key time="0.651" fixedGrad="false" valueLower="26.913" valueUpper="151.692" lgradLower="0.0" lgradUpper="0.0" rgradLower="0.0" rgradUpper="0.0"/>
 				<Key time="1.0" fixedGrad="false" valueLower="255.0" valueUpper="255.0" lgradLower="0.0" lgradUpper="0.0" rgradLower="0.0" rgradUpper="0.0"/>
 			</Param>
 			<Param name="alpha" similar="false" removal="0.0">
 				<Key time="0.0" fixedGrad="false" valueLower="0.0" valueUpper="0.0" lgradLower="0.0" lgradUpper="0.0" rgradLower="0.0" rgradUpper="0.0"/>
-				<Key time="0.14" fixedGrad="false" valueLower="255.0" valueUpper="255.0" lgradLower="0.0" lgradUpper="0.0" rgradLower="0.0" rgradUpper="0.0"/>
-				<Key time="0.76" fixedGrad="false" valueLower="200.0" valueUpper="200.0" lgradLower="0.0" lgradUpper="0.0" rgradLower="0.0" rgradUpper="0.0"/>
+				<Key time="0.155" fixedGrad="false" valueLower="26.832" valueUpper="26.832" lgradLower="0.0" lgradUpper="0.0" rgradLower="0.0" rgradUpper="0.0"/>
+				<Key time="0.651" fixedGrad="false" valueLower="200.0" valueUpper="200.0" lgradLower="0.0" lgradUpper="0.0" rgradLower="0.0" rgradUpper="0.0"/>
 				<Key time="1.0" fixedGrad="false" valueLower="0.0" valueUpper="0.0" lgradLower="0.0" lgradUpper="0.0" rgradLower="0.0" rgradUpper="0.0"/>
 			</Param>
 			<Param name="fps" similar="false" removal="0.0">

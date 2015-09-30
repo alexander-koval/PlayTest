@@ -33,26 +33,26 @@ void GameInfo::setCurrentLevel(int value) {
 	m_currentLevel = value;
 }
 
-int GameInfo::getCurrentLevel() const {
+size_t GameInfo::getCurrentLevel() const {
 	return m_currentLevel;
 }
 
-int GameInfo::getNumMonsters() const {
+size_t GameInfo::getNumMonsters() const {
 	const LevelInfo& level = m_levels.at(m_currentLevel);
 	return level.numMonsters;
 }
 
-int GameInfo::getNumCatchers() const {
+size_t GameInfo::getNumCatchers() const {
 	const LevelInfo& level = m_levels.at(m_currentLevel);
 	return level.numCatchers;
 }
 
-int GameInfo::getNumMonstersToCatch() const {
+size_t GameInfo::getNumMonstersToCatch() const {
 	const LevelInfo& level = m_levels.at(m_currentLevel);
 	return level.numMonstersToCatch;
 }
 
-int GameInfo::numLevels() const
+size_t GameInfo::numLevels() const
 {
 	return m_levels.size();
 }

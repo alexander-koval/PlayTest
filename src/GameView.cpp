@@ -14,6 +14,7 @@ GameView::GameView(const std::string& name, rapidxml::xml_node<>* elem)
 	  , m_catcherPool(GameInfo::instance().getNumCatchers(), GameInfo::instance().getNumCatchers())
 	  , m_effects()
 	  , m_shadow()
+	  , m_trails(GameInfo::instance().getNumMonsters())
 	  , m_leftCatchers(0)
 	  , m_catchedMonsters(0) {
 	IRect size = Core::appInstance->GetMainWindow()->GetClientSizes();
@@ -27,14 +28,14 @@ GameView::~GameView() {
 
 void GameView::Draw() {
 	GUI::Widget::Draw();
+	m_effects.Draw();
 	for (std::vector<MonsterPtr>::iterator it = m_monsters.begin(); it != m_monsters.end(); ++it) {
 		if (*it) (*it)->Draw();
 	}
 
-	for (std::vector<ShockwavePtr>::iterator it = m_catchers.begin(); it != m_catchers.end(); ++it) {
+	for (std::vector<CatchersPtr>::iterator it = m_catchers.begin(); it != m_catchers.end(); ++it) {
 		if (*it) (*it)->Draw();
 	}
-	m_effects.Draw();
 
 	Render::BindFont("Sansation");
 	if (isLevelFailed()) {
@@ -51,7 +52,7 @@ void GameView::Draw() {
 void GameView::Update(float dt) {
 	GUI::Widget::Update(dt);
 	UpdateMonsters(dt);
-	UpdateShockwaves(dt);
+	UpdateCatchers(dt);
 	m_effects.Update(dt);
 }
 
@@ -88,13 +89,19 @@ void GameView::MouseUp(const IPoint& mouse_pos) {
 void GameView::Init() {
 	m_catchedMonsters = 0;
 	m_leftCatchers = GameInfo::instance().getNumCatchers();
-	int numMonsters = GameInfo::instance().getNumMonsters();
+	size_t numMonsters = GameInfo::instance().getNumMonsters();
+	m_trails.resize(numMonsters);
+	m_catchers.reserve(m_leftCatchers);
 	for (std::size_t index = 0; index < numMonsters; ++index) {
 		MonsterPtr monster = m_monsterPool.get();
+		m_trails[index] = m_effects.AddEffect("Trail");
+		m_trails[index]->posX = monster->GetPosition().x;
+		m_trails[index]->posY = monster->GetPosition().y;
 		monster->SetPosition(IPoint(math::random(0, width - monster->Width()), math::random(0, height - monster->Height())));
 		monster->SetVelocity(math::random(-100, 100), math::random(-0, 0), 0);
 		monster->SetState(Monster::StateAlive);
 		m_monsters[index] = std::move(monster);
+		m_trails[index]->Reset();
 	}
 }
 
@@ -108,11 +115,14 @@ void GameView::Cleanup() {
 		if (*it) m_monsterPool.set(*it);
 	}
 
-	std::vector<ShockwavePtr> shockwaves;
-	m_catchers.swap(shockwaves);
-	for (std::vector<ShockwavePtr>::iterator it = shockwaves.begin(); it != shockwaves.end(); ++it) {
+	std::vector<CatchersPtr> catchers;
+	m_catchers.swap(catchers);
+	for (std::vector<CatchersPtr>::iterator it = catchers.begin(); it != catchers.end(); ++it) {
 		if (*it) m_catcherPool.set(*it);
 	}
+	
+	m_trails.clear();
+	m_effects.KillAllEffects();
 }
 
 void GameView::UpdateMonsters(float dt) {
@@ -121,26 +131,31 @@ void GameView::UpdateMonsters(float dt) {
 		if (monster) {
 			CollideWithWall(*monster);
 			monster->Update(dt);
-			CollideWithShockwaves(*monster);
+			CollideWithCatchers(*monster);
+			m_trails[index]->posX = monster->GetPosition().x;
+			m_trails[index]->posY = monster->GetPosition().y;
 			if (monster->IsDead()) {
+				m_trails[index]->Finish();
 				m_shadow = m_effects.AddEffect("Shadow");
 				m_shadow->posX = monster->GetPosition().x;
 				m_shadow->posY = monster->GetPosition().y;
-				m_monsterPool.set(monster);
+				m_monsterPool.set(std::move(monster));
 				std::swap(m_monsters[index], m_monsters.back());
+				std::swap(m_trails[index], m_trails.back());
 				m_monsters.resize(m_monsters.size() - 1);
+				m_trails.resize(m_trails.size() - 1);
 				m_shadow->Reset();
 			}
 		}
 	}
 }
 
-void GameView::UpdateShockwaves(float dt) {
+void GameView::UpdateCatchers(float dt) {
 	for (std::size_t index = 0; index < m_catchers.size(); ++index) {
-		const ShockwavePtr& shockwave = m_catchers[index];
-		shockwave->Update(dt);
-		if (!shockwave->IsAlive()) {
-			m_catcherPool.set(shockwave);
+		const CatchersPtr& catcher = m_catchers[index];
+		catcher->Update(dt);
+		if (!catcher->IsAlive()) {
+			m_catcherPool.set(std::move(catcher));
 			std::swap(m_catchers[index], m_catchers.back());
 			m_catchers.resize(m_catchers.size() - 1);
 		}
@@ -148,16 +163,16 @@ void GameView::UpdateShockwaves(float dt) {
 }
 
 void GameView::SpawnCatcher(const IPoint& position) {
-	ShockwavePtr shockwave = m_catcherPool.get();
-	if (shockwave) {
-		shockwave->Invalidate();
-		shockwave->SetPosition(IPoint(position.x, position.y));
-		shockwave->SetStartScale(.01f);
-		shockwave->SetEndScale(1.f);
-		shockwave->SetScale(.1f);
-		shockwave->SetLifetime(1.f);
-		shockwave->SetGrowTime(.5f);
-		m_catchers.push_back(std::move(shockwave));
+	CatchersPtr catcher = m_catcherPool.get();
+	if (catcher) {
+		catcher->Invalidate();
+		catcher->SetPosition(IPoint(position.x, position.y));
+		catcher->SetStartScale(.01f);
+		catcher->SetEndScale(1.f);
+		catcher->SetScale(.1f);
+		catcher->SetLifetime(1.f);
+		catcher->SetGrowTime(.5f);
+		m_catchers.push_back(std::move(catcher));
 		MM::manager.PlaySample("hide_in", false, 1.f);
 	}
 }
@@ -172,18 +187,18 @@ void GameView::CollideWithWall(Monster& monster) {
 	}
 }
 
-bool GameView::CollideWithShockwave(Monster& monster, Catcher& shockwave) {
-	IPoint deltaPoint = monster.GetPosition() - shockwave.GetPosition();
+bool GameView::CollideWithCatcher(Monster& monster, Catcher& cathcer) {
+	IPoint deltaPoint = monster.GetPosition() - cathcer.GetPosition();
 	float distance = std::sqrt(deltaPoint.x * deltaPoint.x + deltaPoint.y * deltaPoint.y);
-	return distance < monster.Height() * 0.5f + shockwave.GetRadius();
+	return distance < monster.Height() * 0.5f + cathcer.GetRadius();
 }
 
-void GameView::CollideWithShockwaves(Monster& monster) {
+void GameView::CollideWithCatchers(Monster& monster) {
 	if (monster.IsAlive()) {
-		std::vector<ShockwavePtr>::iterator it = m_catchers.begin();
+		std::vector<CatchersPtr>::iterator it = m_catchers.begin();
 		while (it != m_catchers.end()) {
 			if (*it && (*it)->IsAlive()) {
-				bool result = CollideWithShockwave(monster, *(*it));
+				bool result = CollideWithCatcher(monster, *(*it));
 				if (result) {
 					monster.SetState(Monster::StateDieing);
 					SpawnCatcher(monster.GetPosition());
@@ -199,7 +214,7 @@ void GameView::CollideWithShockwaves(Monster& monster) {
 
 bool GameView::isLevelComplete() const {
 	const GameInfo& gameInfo = GameInfo::instance();
-	int numMonstersToCatch = gameInfo.getNumMonstersToCatch();
+	size_t numMonstersToCatch = gameInfo.getNumMonstersToCatch();
 	return (numMonstersToCatch <= m_catchedMonsters);
 }
 
