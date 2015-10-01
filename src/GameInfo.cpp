@@ -53,13 +53,13 @@ void GameInfo::InitLevels() {
 	m_levels[1] = { 5, 10, 20 };
 	m_levels[2] = {5, 14, 20};
 	m_levels[3] = {5, 13, 20};
-	m_levels[4] = {4, 13, 20};
-	m_levels[5] = {4, 15, 20};
-	m_levels[6] = {4, 18, 30};
-	m_levels[7] = {3, 22, 30};
-	m_levels[8] = {3, 24, 30};
-	m_levels[9] = {2, 24, 30};
-	m_levels[10] = {2, 25, 30};
+	m_levels[4] = {4, 15, 20};
+	m_levels[5] = {3, 15, 20};
+	m_levels[6] = {3, 18, 30};
+	m_levels[7] = {3, 20, 30};
+	m_levels[8] = {2, 21, 30};
+	m_levels[9] = {2, 22, 30};
+	m_levels[10] = {2, 23, 30};
 }
 
 bool GameInfo::nextLevel() {

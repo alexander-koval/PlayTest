@@ -199,7 +199,7 @@ void GameView::CollideWithCatchers(Monster& monster) {
 					monster.SetState(Monster::StateDieing);
 					SpawnCatcher(monster.GetPosition());
 					++m_catchedMonsters;
-					MM::manager.PlaySample("scream_01", false, 1.f);
+					MM::manager.PlaySample("scream_01", false, .2f);
 					break;
 				}
 			}

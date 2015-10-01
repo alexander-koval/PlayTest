@@ -10,7 +10,7 @@
 				<Key time="1.0" fixedGrad="false" valueLower="-80.287" valueUpper="80.287" lgradLower="0.0" lgradUpper="0.0" rgradLower="0.0" rgradUpper="0.0"/>
 			</Param>
 			<Param name="size" similar="false" removal="0.0">
-				<Key time="0.0" fixedGrad="false" valueLower="29.578" valueUpper="29.578" lgradLower="0.0" lgradUpper="0.0" rgradLower="0.0" rgradUpper="0.0"/>
+				<Key time="0.0" fixedGrad="false" valueLower="35.136" valueUpper="35.136" lgradLower="0.0" lgradUpper="0.0" rgradLower="0.0" rgradUpper="0.0"/>
 				<Key time="1.0" fixedGrad="false" valueLower="0.0" valueUpper="0.0" lgradLower="0.0" lgradUpper="0.0" rgradLower="0.0" rgradUpper="0.0"/>
 			</Param>
 			<Param name="angle" similar="false" removal="0.0">
@@ -18,24 +18,27 @@
 				<Key time="1.0" fixedGrad="false" valueLower="-0.014" valueUpper="-0.014" lgradLower="0.0" lgradUpper="0.0" rgradLower="0.0" rgradUpper="0.0"/>
 			</Param>
 			<Param name="v" similar="false" removal="0.0">
-				<Key time="0.0" fixedGrad="false" valueLower="248.423" valueUpper="248.423" lgradLower="0.0" lgradUpper="0.0" rgradLower="0.0" rgradUpper="0.0"/>
-				<Key time="0.155" fixedGrad="false" valueLower="68.973" valueUpper="68.973" lgradLower="0.0" lgradUpper="0.0" rgradLower="0.0" rgradUpper="0.0"/>
-				<Key time="1.0" fixedGrad="false" valueLower="0.0" valueUpper="0.0" lgradLower="0.0" lgradUpper="0.0" rgradLower="0.0" rgradUpper="0.0"/>
+				<Key time="0.0" fixedGrad="false" valueLower="148.611" valueUpper="148.611" lgradLower="0.0" lgradUpper="0.0" rgradLower="0.0" rgradUpper="0.0"/>
+				<Key time="0.321" fixedGrad="false" valueLower="134.458" valueUpper="134.458" lgradLower="0.0" lgradUpper="0.0" rgradLower="0.0" rgradUpper="0.0"/>
+				<Key time="1.0" fixedGrad="false" valueLower="-44.23" valueUpper="-44.23" lgradLower="0.0" lgradUpper="0.0" rgradLower="0.0" rgradUpper="0.0"/>
 			</Param>
 			<Param name="spin" similar="false" removal="0.0">
 				<Key time="0.0" fixedGrad="false" valueLower="0.0" valueUpper="0.0" lgradLower="0.0" lgradUpper="0.0" rgradLower="0.0" rgradUpper="0.0"/>
 			</Param>
 			<Param name="red" similar="false" removal="0.0">
-				<Key time="0.0" fixedGrad="false" valueLower="117.011" valueUpper="117.011" lgradLower="0.0" lgradUpper="0.0" rgradLower="0.0" rgradUpper="0.0"/>
-				<Key time="1.0" fixedGrad="false" valueLower="112.816" valueUpper="112.816" lgradLower="0.0" lgradUpper="0.0" rgradLower="0.0" rgradUpper="0.0"/>
+				<Key time="0.0" fixedGrad="false" valueLower="211.178" valueUpper="215.833" lgradLower="0.0" lgradUpper="0.0" rgradLower="0.0" rgradUpper="0.0"/>
+				<Key time="0.498" fixedGrad="false" valueLower="148.897" valueUpper="231.966" lgradLower="0.0" lgradUpper="0.0" rgradLower="0.0" rgradUpper="0.0"/>
+				<Key time="1.0" fixedGrad="false" valueLower="232.805" valueUpper="255.0" lgradLower="0.0" lgradUpper="0.0" rgradLower="0.0" rgradUpper="0.0"/>
 			</Param>
 			<Param name="green" similar="false" removal="0.0">
-				<Key time="0.0" fixedGrad="false" valueLower="131.744" valueUpper="131.744" lgradLower="0.0" lgradUpper="0.0" rgradLower="0.0" rgradUpper="0.0"/>
-				<Key time="1.0" fixedGrad="false" valueLower="114.767" valueUpper="114.767" lgradLower="0.0" lgradUpper="0.0" rgradLower="0.0" rgradUpper="0.0"/>
+				<Key time="0.0" fixedGrad="false" valueLower="197.698" valueUpper="201.605" lgradLower="0.0" lgradUpper="0.0" rgradLower="0.0" rgradUpper="0.0"/>
+				<Key time="0.498" fixedGrad="false" valueLower="151.267" valueUpper="205.593" lgradLower="0.0" lgradUpper="0.0" rgradLower="0.0" rgradUpper="0.0"/>
+				<Key time="1.0" fixedGrad="false" valueLower="205.593" valueUpper="205.593" lgradLower="0.0" lgradUpper="0.0" rgradLower="0.0" rgradUpper="0.0"/>
 			</Param>
 			<Param name="blue" similar="false" removal="0.0">
-				<Key time="0.0" fixedGrad="false" valueLower="135.988" valueUpper="135.988" lgradLower="0.0" lgradUpper="0.0" rgradLower="0.0" rgradUpper="0.0"/>
-				<Key time="1.0" fixedGrad="false" valueLower="127.5" valueUpper="127.5" lgradLower="0.0" lgradUpper="0.0" rgradLower="0.0" rgradUpper="0.0"/>
+				<Key time="0.0" fixedGrad="false" valueLower="199.651" valueUpper="199.651" lgradLower="0.0" lgradUpper="0.0" rgradLower="0.0" rgradUpper="0.0"/>
+				<Key time="0.498" fixedGrad="false" valueLower="134.291" valueUpper="244.748" lgradLower="0.0" lgradUpper="0.0" rgradLower="0.0" rgradUpper="0.0"/>
+				<Key time="1.0" fixedGrad="false" valueLower="223.419" valueUpper="231.058" lgradLower="0.0" lgradUpper="0.0" rgradLower="0.0" rgradUpper="0.0"/>
 			</Param>
 			<Param name="alpha" similar="false" removal="0.0">
 				<Key time="0.0" fixedGrad="false" valueLower="255.0" valueUpper="255.0" lgradLower="0.0" lgradUpper="0.0" rgradLower="0.0" rgradUpper="0.0"/>
