@@ -39,9 +39,9 @@ void GameView::Draw() {
 
 	Render::BindFont("Sansation");
 	if (isLevelFailed()) {
-		Render::PrintString(width / 2, height / 2, "LEVEL FAILED\nPress RIGTH MOUSE BUTTON to restart", 1.f, CenterAlign, BaseLineAlign);
+		Render::PrintString(width * .5f, height * .5f, "LEVEL FAILED\nPress RIGTH MOUSE BUTTON to restart", 1.f, CenterAlign, BaseLineAlign);
 	} else if (isLevelComplete()) {
-		Render::PrintString(width / 2, height / 2, "LEVEL COMPLETE\nPress RIGHT MOUSE BUTTON to continue", 1.f, CenterAlign, BaseLineAlign);
+		Render::PrintString(width * .5f, height * .5f, "LEVEL COMPLETE\nPress RIGHT MOUSE BUTTON to continue", 1.f, CenterAlign, BaseLineAlign);
 	}
 
 	Render::PrintString(width - 100, height - 10, "Level: " + std::to_string(Game::instance().GetGameInfo().getCurrentLevel()));
@@ -92,7 +92,7 @@ void GameView::Init() {
 		m_trails[index]->posX = monster->GetPosition().x;
 		m_trails[index]->posY = monster->GetPosition().y;
 		monster->SetPosition(IPoint(math::random(0, width - monster->Width()), math::random(0, height - monster->Height())));
-		monster->SetVelocity(math::random(-100, 100), math::random(-0, 0), 0);
+		monster->SetVelocity(math::random(-100, 100), math::random(-100, 100), 0);
 		monster->SetState(Monster::StateAlive);
 		m_monsters[index] = std::move(monster);
 		m_trails[index]->Reset();
@@ -162,7 +162,7 @@ void GameView::SpawnCatcher(const IPoint& position) {
 	if (catcher) {
 		catcher->Invalidate();
 		catcher->SetPosition(IPoint(position.x, position.y));
-		catcher->SetStartScale(.01f);
+		catcher->SetStartScale(.1f);
 		catcher->SetEndScale(1.f);
 		catcher->SetScale(.1f);
 		catcher->SetLifetime(gameInfo.getCatcherBornTime() + gameInfo.getCatcherLifetime());
