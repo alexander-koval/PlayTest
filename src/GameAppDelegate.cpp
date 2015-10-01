@@ -1,9 +1,9 @@
-#include "stdafx.h"
+﻿#include "stdafx.h"
 #include "GameAppDelegate.h"
 #include "GameView.h"
 #include "MenuView.h"
 #include "Game.h"
-#include "Utils.h"
+#include "GameUtils.h"
 
 enum {
 	WINDOW_WIDTH = 768,
@@ -42,7 +42,7 @@ void GameAppDelegate::LoadResources() {
 	// Обычно в этом методе выполняется скрипт, в котором определяется,
 	// какие ресурсы нужно загрузить и какой игровой слой положить на экран.
 	//
-	GameInfo* info = new GameInfo(Utils::GetConfigParams("input.txt"));
+	GameInfo* info = new GameInfo(GameUtils::GetConfigParams("input.txt"));
 	Game::instance().SetGameInfo(std::unique_ptr<GameInfo>(std::move(info)));
 	Core::LuaExecuteStartupScript("start.lua");
 }

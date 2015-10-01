@@ -128,7 +128,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="src\Utils.cpp" />
+    <ClCompile Include="src\GameUtils.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Game.h" />
@@ -141,7 +141,7 @@
     <ClInclude Include="src\GameView.h" />
     <ClInclude Include="src\GameAppDelegate.h" />
     <ClInclude Include="src\stdafx.h" />
-    <ClInclude Include="src\Utils.h" />
+    <ClInclude Include="src\GameUtils.h" />
   </ItemGroup>
   <ItemGroup>
     <Xml Include="bin\base_p\Layers.xml" />

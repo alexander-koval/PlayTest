@@ -1,7 +1,7 @@
 #include "stdafx.h"
-#include "Utils.h"
+#include "GameUtils.h"
 
-std::map<std::string, float> Utils::GetConfigParams(std::string filename) {
+std::map<std::string, float> GameUtils::GetConfigParams(std::string filename) {
 	std::map<std::string, float> config_map;
 	if (Core::fileSystem.FileExists(filename)) {
 		IO::InputStreamPtr stream(Core::fileSystem.OpenRead("input.txt"));
@@ -29,7 +29,7 @@ std::map<std::string, float> Utils::GetConfigParams(std::string filename) {
 	return config_map;
 }
 
-std::pair<std::string, float> Utils::GetKeyValuePair(std::string content) {
+std::pair<std::string, float> GameUtils::GetKeyValuePair(std::string content) {
 	size_t start = 0;
 	float result = 0.f;
 	const size_t pos = content.find('=', start);
