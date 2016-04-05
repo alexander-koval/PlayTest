@@ -11,7 +11,7 @@ MenuView::MenuView(const std::string& name, rapidxml::xml_node<>* elem)
 
 void MenuView::Draw() {
 	Render::BindFont("Sansation");
-	Render::PrintString(width * 0.5f, height * 0.5f, "Test game application for Playrix\nPress MOUSE BUTTON to continue", 
+	Render::PrintString(width * 0.5f, height * 0.5f, "Test game application\nPress MOUSE BUTTON to continue", 
 		1.f, CenterAlign, BaseLineAlign);
 	if (Game::instance().GetGameInfo().isDevelopMode()) {
 		Render::PrintString(width * 0.5f, height * 0.4f, "This game is in TEST MODE.\nThe file \"input.txt\" is in use", 
